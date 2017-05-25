@@ -24,7 +24,9 @@ class mazzo:
         if isinstance(_carta, carta.carta):
             pos = 0
             for i in self.mazzo:
-                if isinstance(i, carta.carta):  # rimuovo da mazzo e metto in passate
+                if isinstance(
+                        i, carta.carta):  # rimuovo da mazzo e metto in passate
                     if (i.seme == _carta.seme) and (i.valore == _carta.valore):
                         self.mazzo.remove(i)
                         self.passate.append(i)
+                pos += 1
