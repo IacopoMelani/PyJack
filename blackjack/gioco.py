@@ -27,7 +27,8 @@ ListaValori = {
 }
 
 
-def distribuisciIniziale(_mazzo, _giocatore, _mazziere):  # metodo distribuzione carte
+def distribuisciIniziale(_mazzo, _giocatore,
+                         _mazziere):  # metodo distribuzione carte
     if isinstance(_mazzo, mazzo.mazzo):  # controllo sulle instanze di classe
         if isinstance(_giocatore, giocatore.giocatore):
             for i in range(2):
