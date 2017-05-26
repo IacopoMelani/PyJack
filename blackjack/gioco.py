@@ -3,6 +3,7 @@ import carta
 import mazzo
 import giocatore
 import mazziere
+import readline
 
 ListaSemi = ["Fiori", "Quadri", "Cuori", "Picche"]
 ListaRanghi = [
