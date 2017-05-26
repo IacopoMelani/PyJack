@@ -6,6 +6,7 @@ import mazziere
 import readline
 
 
+
 ListaSemi = ["Fiori", "Quadri", "Cuori", "Picche"]
 ListaRanghi = [
     "Asso", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Regina",
