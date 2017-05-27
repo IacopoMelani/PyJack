@@ -72,10 +72,17 @@ def menu(_giocatore, _mazzo, _mazziere):  # menu -> da riordinare(forse)
                 print "\n %s \n" % _giocatore
 
                 # risposta da esito del blackjack iniziale
-                esito = controlloBlackJack(_giocatore)
+                esitoGiocatore = controlloBlackJack(_giocatore)
+                esitoMazziere =  controlloBlackJack(_mazziere)
 
-                if esito == True:
+                if esitoGiocatore == True and esitoMazziere == False:
                     print "complimenti hai fatto BlackJack :)"
+                    return
+                elif esitoGiocatore == False and esitoMazziere = True:
+                    print "il mazziere ha vinto"
+                    return
+                elif esitoGiocatore == True and esitoMazziere == True:
+                    print "pareggio BlackJack da entrambe le paerti"
                     return
 
                 continua = True  # booleano per continuità della partina, verra messo a false quando giocatore "sta" o "sfora"
