@@ -1,4 +1,6 @@
 # coding=utf-8
+import carta
+
 class mazziere:
 
     def __init__(self):
