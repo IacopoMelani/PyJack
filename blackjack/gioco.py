@@ -72,8 +72,8 @@ def menu(_giocatore, _mazzo, _mazziere):  # menu -> da riordinare(forse)
                 # distribuzione carte iniziale
                 distribuisciIniziale(_mazzo, _giocatore, _mazziere)
 
-                print "\n %s \n" % _giocatore
-
+                print "\n tu:\n%s \n" % _giocatore
+                print "\n mazziere\n%s \n" % _mazziere
                 # risposta da esito del blackjack iniziale
                 esitoGiocatore = controlloBlackJack(_giocatore)
                 esitoMazziere =  controlloBlackJack(_mazziere)
@@ -81,7 +81,7 @@ def menu(_giocatore, _mazzo, _mazziere):  # menu -> da riordinare(forse)
                 if esitoGiocatore == True and esitoMazziere == False:
                     print "complimenti hai fatto BlackJack :)"
                     return
-                elif esitoGiocatore == False and esitoMazziere = True:
+                elif esitoGiocatore == False and esitoMazziere == True:
                     print "il mazziere ha vinto"
                     return
                 elif esitoGiocatore == True and esitoMazziere == True:
@@ -103,7 +103,7 @@ def menu(_giocatore, _mazzo, _mazziere):  # menu -> da riordinare(forse)
                         # controllo assi dopo ricevuta la carta
                         _giocatore.controlloAssi()
 
-                        print "\n%s" % _giocatore
+                        print "\n%s" % _giocatore 
                         # controlla che si possa richiedere ancora carta
                         somma = controlloSomma(_giocatore)
 
