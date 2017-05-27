@@ -14,6 +14,11 @@ class mazziere:
             s = s + str(self.carte[i]) + "\n"
         s = s + "\n\n somma carte: " + str(self.somma)
         return s
+    
+    def stampaIniziale(self):
+        s = "coperta\n"
+        s = s + str(self.carte[1]) + "\n"
+        return s
 
     def riceviCarta(self, _carta, _mazzo):
 

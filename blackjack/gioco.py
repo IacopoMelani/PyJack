@@ -75,7 +75,7 @@ def menu(_giocatore, _mazzo, _mazziere):  # menu -> da riordinare(forse)
                 distribuisciIniziale(_mazzo, _giocatore, _mazziere)
 
                 print "\n tu:\n%s \n" % _giocatore
-                print "\n mazziere\n%s \n" % _mazziere
+                print "\n mazziere\n%s \n" % _mazziere.stampaIniziale()
                 # risposta da esito del blackjack iniziale
                 esitoGiocatore = controlloBlackJack(_giocatore)
                 esitoMazziere =  controlloBlackJack(_mazziere)
@@ -83,10 +83,10 @@ def menu(_giocatore, _mazzo, _mazziere):  # menu -> da riordinare(forse)
                 if esitoGiocatore == True and esitoMazziere == False:
                     print "complimenti hai fatto BlackJack :)"
                     return
-                elif esitoGiocatore == False and esitoMazziere == True:
+                if esitoGiocatore == False and esitoMazziere == True:
                     print "il mazziere ha vinto"
                     return
-                elif esitoGiocatore == True and esitoMazziere == True:
+                if esitoGiocatore == True and esitoMazziere == True:
                     print "pareggio BlackJack da entrambe le paerti"
                     return
 
