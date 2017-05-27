@@ -11,6 +11,7 @@ ListaRanghi = [
     "Re"
 ]
 
+
 ListaValori = {
     "Asso": (1, 11),
     "2": 2,
