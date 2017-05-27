@@ -3,8 +3,6 @@ import carta
 import mazzo
 import giocatore
 import mazziere
-import readline
-
 
 
 ListaSemi = ["Fiori", "Quadri", "Cuori", "Picche"]
@@ -12,6 +10,7 @@ ListaRanghi = [
     "Asso", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Regina",
     "Re"
 ]
+
 
 ListaValori = {
     "Asso": (1, 11),
@@ -30,12 +29,16 @@ ListaValori = {
 }
 
 
-def distribuisciIniziale(_mazzo, _giocatore,
-                         _mazziere):  # metodo distribuzione carte
+def distribuisciIniziale(_mazzo, _giocatore, _mazziere):  # metodo distribuzione carte
     if isinstance(_mazzo, mazzo.mazzo):  # controllo sulle instanze di classe
+
         if isinstance(_giocatore, giocatore.giocatore):
             for i in range(2):
                 _giocatore.riceviCarta(_mazzo.mazzo[i], _mazzo)
+
+        if isinstance(_mazziere,mazziere.mazziere):
+            for i in range(2):
+                _mazziere.riceviCarta(_mazzo.mazzo[i], _mazzo)
 
 
 def distribuisciCarta(_mazzo, _giocatore):  # metodo "carta"
@@ -72,8 +75,8 @@ def menu(_giocatore, _mazzo, _mazziere):  # menu -> da riordinare(forse)
                 # distribuzione carte iniziale
                 distribuisciIniziale(_mazzo, _giocatore, _mazziere)
 
-                print "\n %s \n" % _giocatore
-
+                print "\n tu:\n%s \n" % _giocatore
+                print "\n mazziere\n%s \n" % _mazziere.stampaIniziale()
                 # risposta da esito del blackjack iniziale
                 esitoGiocatore = controlloBlackJack(_giocatore)
                 esitoMazziere =  controlloBlackJack(_mazziere)
@@ -81,10 +84,10 @@ def menu(_giocatore, _mazzo, _mazziere):  # menu -> da riordinare(forse)
                 if esitoGiocatore == True and esitoMazziere == False:
                     print "complimenti hai fatto BlackJack :)"
                     return
-                elif esitoGiocatore == False and esitoMazziere = True:
+                if esitoGiocatore == False and esitoMazziere == True:
                     print "il mazziere ha vinto"
                     return
-                elif esitoGiocatore == True and esitoMazziere == True:
+                if esitoGiocatore == True and esitoMazziere == True:
                     print "pareggio BlackJack da entrambe le paerti"
                     return
 
@@ -103,7 +106,7 @@ def menu(_giocatore, _mazzo, _mazziere):  # menu -> da riordinare(forse)
                         # controllo assi dopo ricevuta la carta
                         _giocatore.controlloAssi()
 
-                        print "\n%s" % _giocatore
+                        print "\n%s" % _giocatore 
                         # controlla che si possa richiedere ancora carta
                         somma = controlloSomma(_giocatore)
 
@@ -152,53 +155,4 @@ def main():
 while True:
     main()
 
-#-------------------------------------------------------------------------
-# 23/01/17 18:30
-# 1 -   trovato problema su controllo assi, se somma sfora ma è presente un asso in modo
-#       da transformare valore in 1 da comunque sforato ->
-#       da implementare quando sfora un controllo e cambiare il valore di tutti gli assi in 1 ->
-#       non tutti solo quelli che compromettono la somma
-#-------------------------------------------------------------------------
 
-#-------------------------------------------------------------------------
-# 23/01/17 23:30
-# 1 -   risolto in modo parziale problema su gli assi ma si presenta di conseguenza un secondo problema
-#       quando, dopo aver compiuto in modo corretto il controllo su gli assi, riscontra problemi
-# nel aggiungere i successivi valori -> probabilmente problema logico ->
-# forse dovuto alla lista dei punti
-
-# 2 -   da implementare la classe mazziere, probabilmente simile a giocatore e rivedere il metodo della distribuzione
-#       iniziale(se ho voglia!)
-
-# 3 -   da implementare una componente con un patrimonio per non star ogni volta a riavviare in modo forzato lo script
-#-------------------------------------------------------------------------
-
-#-------------------------------------------------------------------------
-# 24/01/17 00:00
-# 1 -   problema rilevato nel cotrollo degli assi sembra compleatamente sistemato - auguri a me!
-#-------------------------------------------------------------------------
-
-#-------------------------------------------------------------------------
-# 24/01/17 8:20
-# 1 -	problema relativo nel controllo degli assi sembra essere ancora persistente
-#-------------------------------------------------------------------------
-
-#-------------------------------------------------------------------------
-# 24/01/17 9:10
-# 1 -	il problema dell'asso sembra essere risolto, altri test e posso passare all'implementazione
-#		del mazziere
-#-------------------------------------------------------------------------
-
-#-------------------------------------------------------------------------
-# 27/01/17 1:45
-# 1 -   i test sul controllo dell'asso sembrano andare bene posso iniziare l'implementazione
-#       dell'IA del mazziere -> sarà da riguardare anche la distribuzione delle carte all'inizio
-#       della partita in modo da dividere le prime due carte tra mazziere e giocatore (la prima
-#       al mazziere sarà coperta) e le altre due
-#-------------------------------------------------------------------------
-
-#-------------------------------------------------------------------------
-# 15/02/17 14:30
-# 1-	ho optato per la distribuzione non mischiata ma dare prima tutte le carte al giocatore e
-# 		successivamente al mazziere
-#-------------------------------------------------------------------------

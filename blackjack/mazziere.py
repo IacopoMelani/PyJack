@@ -1,4 +1,6 @@
 # coding=utf-8
+import carta
+
 class mazziere:
 
     def __init__(self):
@@ -11,6 +13,11 @@ class mazziere:
         for i in range(len(self.carte)):  # ciclo per stampare tutte le carte del giocatore
             s = s + str(self.carte[i]) + "\n"
         s = s + "\n\n somma carte: " + str(self.somma)
+        return s
+    
+    def stampaIniziale(self):
+        s = "coperta\n"
+        s = s + str(self.carte[1]) + "\n"
         return s
 
     def riceviCarta(self, _carta, _mazzo):
