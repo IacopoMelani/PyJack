@@ -47,6 +47,11 @@ def distribuisciCarta(_mazzo, _giocatore):  # metodo "carta"
             # distribuisci la prima carta
             _giocatore.riceviCarta(_mazzo.mazzo[0], _mazzo)
 
+def distribuisciCartaMazzziere(_mazzo,_mazziere):
+    if(isinstance(_mazzo,mazzo.mazzo)):
+        if isinstance(_giocatore, mazziere.mazziere):
+            _mazziere.riceviCarta(_mazzo.mazzo[0], _mazzo)
+
 
 def stai(_giocatore):
     # comunica di stare e chide di far ritornare risultato
