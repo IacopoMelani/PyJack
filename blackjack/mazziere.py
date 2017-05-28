@@ -12,7 +12,7 @@ class mazziere:
         s = ""
         for i in range(len(self.carte)):  # ciclo per stampare tutte le carte del giocatore
             s = s + str(self.carte[i]) + "\n"
-        s = s + "\n\n somma carte: " + str(self.somma)
+        s = s + "\n\n somma carte mazziere: " + str(self.somma)
         return s
     
     def stampaIniziale(self):

@@ -87,10 +87,10 @@ def menu(_giocatore, _mazzo, _mazziere):  # menu -> da riordinare(forse)
                 esitoMazziere =  controlloBlackJack(_mazziere)
 
                 if esitoGiocatore == True and esitoMazziere == False:
-                    print "complimenti hai fatto BlackJack :)"
+                    print "complimenti hai fatto BlackJack"
                     return
                 if esitoGiocatore == False and esitoMazziere == True:
-                    print "il mazziere ha vinto"
+                    print "il mazziere ha fatto BlackJack"
                     return
                 if esitoGiocatore == True and esitoMazziere == True:
                     print "pareggio BlackJack da entrambe le paerti"
@@ -116,7 +116,7 @@ def menu(_giocatore, _mazzo, _mazziere):  # menu -> da riordinare(forse)
                         somma = controlloSomma(_giocatore)
 
                         if somma == 21:  # controllo se 21 o sforato a carta
-                            print "\nhai fatto 21 - you win!\n"
+                            print "\nhai fatto 21\n"
                             continua = False
                         elif somma > 21:
                             print "\nhai sforato con: %d\n" % somma
@@ -126,6 +126,9 @@ def menu(_giocatore, _mazzo, _mazziere):  # menu -> da riordinare(forse)
                         risultato = stai(_giocatore)
                         continua = False
                         print "\nhai fatto: %d\n" % risultato
+                
+                print "mazziere: %s" % _mazziere
+
 
 
 def main():
@@ -146,8 +149,7 @@ def main():
     for i in range(0, 100):  # shuffle del mazzo per 100 volte
         _mazzo.mischia()
 
-    nomeGiocatore = raw_input(
-        "\n\n\ninserisci il tuo nome: ")  # inserimento giocatore
+    nomeGiocatore = raw_input("\n\n\ninserisci il tuo nome: ")  # inserimento giocatore
 
     _giocatore = giocatore.giocatore(nomeGiocatore)
     print "\n\n\n benvenuto %s" % _giocatore.nome
