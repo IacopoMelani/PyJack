@@ -134,6 +134,13 @@ def menu(_giocatore, _mazzo, _mazziere):  # menu -> da riordinare(forse)
 
                 print "\nmazziere: %s\n" % _mazziere
 
+                if _mazziere.somma > _giocatore.somma and _mazziere.somma < 22 and _giocatore.somma < 22:
+                    print "\n\n ha vinto il mazziere"
+                elif _mazziere.somma == _giocatore.somma and _mazziere.somma < 22 and _giocatore.somma < 22:
+                    print "\n\n pareggio"
+                elif _mazziere.somma < _giocatore.somma and _giocatore.somma < 22 and _mazziere.somma < 22:
+                    print "\n\n ha vinto il giocatore"
+
 
 def main():
     os.system("clear")
@@ -162,7 +169,7 @@ def main():
     _mazziere = mazziere.mazziere()
 
     menu(_giocatore, _mazzo, _mazziere)
-    ok = raw_input("\n\n\n clicca un tasto per continuare...")
+    ok = raw_input("\n\n\n clicca invio per continuare...")
 
 
 while True:
