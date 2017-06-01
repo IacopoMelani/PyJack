@@ -1,20 +1,21 @@
 # coding=utf-8
 import carta
 
-class mazziere:
 
+class mazziere:
     def __init__(self):
         self.somma = 0
         self.carte = []
         self.punti = []
 
     def __str__(self):
-        s = ""
-        for i in range(len(self.carte)):  # ciclo per stampare tutte le carte del giocatore
+        s = "\n\n"
+        for i in range(len(self.carte)
+                       ):  # ciclo per stampare tutte le carte del giocatore
             s = s + str(self.carte[i]) + "\n"
         s = s + "\n\n somma carte mazziere: " + str(self.somma)
         return s
-    
+
     def stampaIniziale(self):
         s = "coperta\n"
         s = s + str(self.carte[1]) + "\n"
@@ -41,7 +42,9 @@ class mazziere:
         if isinstance(_carta, carta.carta):
             valoreAsso = 11
             if _carta.valore == "Asso":  # controllo se la carta è un Asso
-                if (self.somma + 11) > 21:  # se somma è maggiore di 21 asso = 1 altrimenti continua
+                if (
+                        self.somma + 11
+                ) > 21:  # se somma è maggiore di 21 asso = 1 altrimenti continua
                     valoreAsso = 1
 
                 else:

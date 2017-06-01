@@ -4,13 +4,11 @@ import mazzo
 import giocatore
 import mazziere
 
-
 ListaSemi = ["Fiori", "Quadri", "Cuori", "Picche"]
 ListaRanghi = [
     "Asso", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Regina",
     "Re"
 ]
-
 
 ListaValori = {
     "Asso": (1, 11),
@@ -29,14 +27,15 @@ ListaValori = {
 }
 
 
-def distribuisciIniziale(_mazzo, _giocatore, _mazziere):  # metodo distribuzione carte
+def distribuisciIniziale(_mazzo, _giocatore,
+                         _mazziere):  # metodo distribuzione carte
     if isinstance(_mazzo, mazzo.mazzo):  # controllo sulle instanze di classe
 
         if isinstance(_giocatore, giocatore.giocatore):
             for i in range(2):
                 _giocatore.riceviCarta(_mazzo.mazzo[i], _mazzo)
 
-        if isinstance(_mazziere,mazziere.mazziere):
+        if isinstance(_mazziere, mazziere.mazziere):
             for i in range(2):
                 _mazziere.riceviCarta(_mazzo.mazzo[i], _mazzo)
 
@@ -47,9 +46,10 @@ def distribuisciCarta(_mazzo, _giocatore):  # metodo "carta"
             # distribuisci la prima carta
             _giocatore.riceviCarta(_mazzo.mazzo[0], _mazzo)
 
-def distribuisciCartaMazzziere(_mazzo,_mazziere):
-    if(isinstance(_mazzo,mazzo.mazzo)):
-        if isinstance(_giocatore, mazziere.mazziere):
+
+def distribuisciCartaMazzziere(_mazzo, _mazziere):
+    if (isinstance(_mazzo, mazzo.mazzo)):
+        if isinstance(_mazziere, mazziere.mazziere):
             _mazziere.riceviCarta(_mazzo.mazzo[0], _mazzo)
 
 
@@ -84,7 +84,7 @@ def menu(_giocatore, _mazzo, _mazziere):  # menu -> da riordinare(forse)
                 print "\n mazziere\n%s \n" % _mazziere.stampaIniziale()
                 # risposta da esito del blackjack iniziale
                 esitoGiocatore = controlloBlackJack(_giocatore)
-                esitoMazziere =  controlloBlackJack(_mazziere)
+                esitoMazziere = controlloBlackJack(_mazziere)
 
                 if esitoGiocatore == True and esitoMazziere == False:
                     print "complimenti hai fatto BlackJack"
@@ -111,7 +111,7 @@ def menu(_giocatore, _mazzo, _mazziere):  # menu -> da riordinare(forse)
                         # controllo assi dopo ricevuta la carta
                         _giocatore.controlloAssi()
 
-                        print "\n%s" % _giocatore 
+                        print "\n%s" % _giocatore
                         # controlla che si possa richiedere ancora carta
                         somma = controlloSomma(_giocatore)
 
@@ -124,11 +124,14 @@ def menu(_giocatore, _mazzo, _mazziere):  # menu -> da riordinare(forse)
 
                     elif scelta == 2:  # stop e controllo ritorno somma -> implementare controllo blackjack
                         risultato = stai(_giocatore)
+                        while _mazziere.somma < 17:
+                            distribuisciCartaMazzziere(_mazzo, _mazziere)
+                            _mazziere.controlloAssi()
+
                         continua = False
                         print "\nhai fatto: %d\n" % risultato
-                
-                print "mazziere: %s" % _mazziere
 
+                print "\nmazziere: %s\n" % _mazziere
 
 
 def main():
@@ -149,7 +152,8 @@ def main():
     for i in range(0, 100):  # shuffle del mazzo per 100 volte
         _mazzo.mischia()
 
-    nomeGiocatore = raw_input("\n\n\ninserisci il tuo nome: ")  # inserimento giocatore
+    nomeGiocatore = raw_input(
+        "\n\n\ninserisci il tuo nome: ")  # inserimento giocatore
 
     _giocatore = giocatore.giocatore(nomeGiocatore)
     print "\n\n\n benvenuto %s" % _giocatore.nome
@@ -161,5 +165,3 @@ def main():
 
 while True:
     main()
-
-
