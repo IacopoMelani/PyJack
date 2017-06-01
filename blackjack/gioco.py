@@ -3,6 +3,7 @@ import carta
 import mazzo
 import giocatore
 import mazziere
+import os
 
 ListaSemi = ["Fiori", "Quadri", "Cuori", "Picche"]
 ListaRanghi = [
@@ -81,7 +82,7 @@ def menu(_giocatore, _mazzo, _mazziere):  # menu -> da riordinare(forse)
                 distribuisciIniziale(_mazzo, _giocatore, _mazziere)
 
                 print "\n tu:\n%s \n" % _giocatore
-                print "\n mazziere\n%s \n" % _mazziere.stampaIniziale()
+                print "\n mazziere:\n%s \n" % _mazziere.stampaIniziale()
                 # risposta da esito del blackjack iniziale
                 esitoGiocatore = controlloBlackJack(_giocatore)
                 esitoMazziere = controlloBlackJack(_mazziere)
@@ -135,7 +136,7 @@ def menu(_giocatore, _mazzo, _mazziere):  # menu -> da riordinare(forse)
 
 
 def main():
-
+    os.system("clear")
     tempMazzo = []  # lista di carte temporanea
 
     for a in ListaSemi:
@@ -161,6 +162,7 @@ def main():
     _mazziere = mazziere.mazziere()
 
     menu(_giocatore, _mazzo, _mazziere)
+    ok = raw_input("\n\n\n clicca un tasto per continuare...")
 
 
 while True:
