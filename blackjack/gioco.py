@@ -151,7 +151,7 @@ def menu(_giocatore, _mazzo, _mazziere):  # menu -> da riordinare(forse)
                     if _giocatore.somma < _mazziere.somma and _mazziere.somma < 22:
                         print "%s ha perso con %d\n il mazziere ha fatto: %d" % (_giocatore.nome,_giocatore.somma,_mazziere.somma)
                     if _mazziere.somma > 21:
-                        print "%s ha vinto con: %d\nil mazziere ha sforato con: %d" % (_mazziere.somma,_giocatore.nome,_giocatore.somma)
+                        print "%s ha vinto con: %d\nil mazziere ha sforato con: %d" % (_giocatore.nome,_giocatore.somma,_mazziere.somma)
                     if _mazziere.somma == _giocatore.somma:
                         print "pareggio con:%d" % _giocatore.somma
                 else:
