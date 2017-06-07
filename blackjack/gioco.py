@@ -28,8 +28,7 @@ ListaValori = {
 }
 
 
-def distribuisciIniziale(_mazzo, _giocatore,
-                         _mazziere):  # metodo distribuzione carte
+def distribuisciIniziale(_mazzo, _giocatore,_mazziere):  # metodo distribuzione carte
     if isinstance(_mazzo, mazzo.mazzo):  # controllo sulle instanze di classe
 
         if isinstance(_giocatore, giocatore.giocatore):
@@ -66,10 +65,19 @@ def controlloSomma(_giocatore):  # ritorno della somma del giocatore
         somma = _giocatore.controlloSomma()
         return somma
 
+def controlloSommaMazziere(_mazziere):
+    if isinstance(_mazziere, mazziere.mazziere):
+        somma = _mazziere.controlloSomma()
+        return somma
 
 def controlloBlackJack(_giocatore):  # esito blackjack iniziale
     if isinstance(_giocatore, giocatore.giocatore):
         esito = _giocatore.controlloBlackJack()
+        return esito
+
+def controlloBlackJackMazziere(_mazziere):
+    if isinstance(_mazziere, mazziere.mazziere):
+        esito = _mazziere.controlloBlackJack()
         return esito
 
 
@@ -85,7 +93,7 @@ def menu(_giocatore, _mazzo, _mazziere):  # menu -> da riordinare(forse)
                 print "\n mazziere:\n%s \n" % _mazziere.stampaIniziale()
                 # risposta da esito del blackjack iniziale
                 esitoGiocatore = controlloBlackJack(_giocatore)
-                esitoMazziere = controlloBlackJack(_mazziere)
+                esitoMazziere = controlloBlackJackMazziere(_mazziere)
 
                 if esitoGiocatore == True and esitoMazziere == False:
                     print "complimenti hai fatto BlackJack"
