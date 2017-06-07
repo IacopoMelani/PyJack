@@ -88,6 +88,8 @@ def menu(_giocatore, _mazzo, _mazziere):  # menu -> da riordinare(forse)
 
                 # distribuzione carte iniziale
                 distribuisciIniziale(_mazzo, _giocatore, _mazziere)
+                
+                continua = True  # booleano per continuità della partina, verra messo a false quando giocatore "sta" o "sfora"
 
                 print "\n tu:\n%s \n" % _giocatore
                 print "\n mazziere:\n%s \n" % _mazziere.stampaIniziale()
@@ -105,7 +107,6 @@ def menu(_giocatore, _mazzo, _mazziere):  # menu -> da riordinare(forse)
                     print "pareggio BlackJack da entrambe le parti"
                     continua = False
 
-                continua = True  # booleano per continuità della partina, verra messo a false quando giocatore "sta" o "sfora"
 
                 while continua:
 
