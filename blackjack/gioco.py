@@ -97,13 +97,13 @@ def menu(_giocatore, _mazzo, _mazziere):  # menu -> da riordinare(forse)
 
                 if esitoGiocatore == True and esitoMazziere == False:
                     print "complimenti hai fatto BlackJack"
-                    return
+                    continua = False
                 if esitoGiocatore == False and esitoMazziere == True:
-                    print "il mazziere ha fatto BlackJack"
-                    return
+                    print "il mazziere ha fatto BlackJack", _mazziere
+                    continua = False
                 if esitoGiocatore == True and esitoMazziere == True:
-                    print "pareggio BlackJack da entrambe le paerti"
-                    return
+                    print "pareggio BlackJack da entrambe le parti"
+                    continua = False
 
                 continua = True  # booleano per continuità della partina, verra messo a false quando giocatore "sta" o "sfora"
 
@@ -133,22 +133,32 @@ def menu(_giocatore, _mazzo, _mazziere):  # menu -> da riordinare(forse)
 
                     elif scelta == 2:  # stop e controllo ritorno somma -> implementare controllo blackjack
                         risultato = stai(_giocatore)
-                        while _mazziere.somma < 17:
-                            distribuisciCartaMazzziere(_mazzo, _mazziere)
-                            _mazziere.controlloAssi()
+                        if risultato < 22:
+                            while _mazziere.somma < 17:
+                                distribuisciCartaMazzziere(_mazzo, _mazziere)
+                                _mazziere.controlloAssi()
 
                         continua = False
                         print "\nhai fatto: %d\n" % risultato
 
                 print "\nmazziere: %s\n" % _mazziere
 
-                if _mazziere.somma > _giocatore.somma and _mazziere.somma < 22 and _giocatore.somma < 22:
+                """if _mazziere.somma > _giocatore.somma and _mazziere.somma < 22 and _giocatore.somma < 22:
                     print "\n\n ha vinto il mazziere"
                 elif _mazziere.somma == _giocatore.somma and _mazziere.somma < 22 and _giocatore.somma < 22:
                     print "\n\n pareggio"
                 elif _mazziere.somma < _giocatore.somma and _giocatore.somma < 22 and _mazziere.somma < 22:
-                    print "\n\n ha vinto il giocatore"
-
+                    print "\n\n ha vinto il giocatore"""
+                
+                if _giocatore.somma < 22:
+                    if _giocatore.somma > _mazziere.somma and _mazziere.somma < 22:
+                        print "%s ha vinto con: %d\n il mazziere ha fatto: %d" % (_giocatore.nome,_giocatore.somma,_mazziere.somma)
+                    elif _mazziere.somma > 21:
+                        print "il mazziere ha sforato con: %d\n%s ha vinto con: %d" % (_mazziere.somma,_giocatore.nome,_giocatore.somma)
+                    else:
+                        print "pareggio con:%d" % _giocatore.somma
+                else:
+                    print "%s ha sforato con: %d\n il mazziere vince con %d" % (_giocatore.nome,_giocatore.somma,_mazziere.somma)
 
 def main():
     os.system("clear")
