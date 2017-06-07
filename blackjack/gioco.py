@@ -140,6 +140,7 @@ def menu(_giocatore, _mazzo, _mazziere):  # menu -> da riordinare(forse)
                                 _mazziere.controlloAssi()
 
                         continua = False
+                        print "\n",_giocatore,"\n"
                         print "\nhai fatto: %d\n" % risultato
 
                 print "\nmazziere: %s\n" % _mazziere
